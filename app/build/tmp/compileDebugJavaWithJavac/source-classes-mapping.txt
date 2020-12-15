@@ -1,0 +1,10 @@
+lv/voldins/repositoryg_8/BuildConfig.java
+ lv.voldins.repositoryg_8.BuildConfig
+lv/voldins/repositoryg_8/MainActivity2.java
+ lv.voldins.repositoryg_8.MainActivity2
+ lv.voldins.repositoryg_8.MainActivity2$1
+ lv.voldins.repositoryg_8.MainActivity2$2
+lv/voldins/repositoryg_8/MainActivity.java
+ lv.voldins.repositoryg_8.MainActivity
+ lv.voldins.repositoryg_8.MainActivity$1
+ lv.voldins.repositoryg_8.MainActivity$2
