@@ -22,18 +22,21 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     private Button save;
     EditText text;
     SharedPreferences preferences;
-    SharedPreferences.Editor editor;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         save = (Button) findViewById(R.id.save);
+
         preferences = getSharedPreferences("MySharedPref", MODE_PRIVATE);
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                savePreferences();
+                text.findViewById(R.id.writedText);
+                SharedPreferences.Editor editor = preferences.edit();
+                editor.putString("Text", text.getText().toString());
+                editor.commit();
+                Toast.makeText(MainActivity.this,"Preference saglabāta", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -54,13 +57,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     public void openActivity2(){
         Intent intent = new Intent(MainActivity.this, MainActivity2.class);
         startActivity(intent);
-    }
-    public void savePreferences(){
-        text.findViewById(R.id.writedText);
-        editor = preferences.edit();
-        editor.putString("", text.getText().toString());
-        editor.commit();
-        Toast.makeText(MainActivity.this,"Preference saglabāta", Toast.LENGTH_SHORT).show();
     }
 
     @Override
