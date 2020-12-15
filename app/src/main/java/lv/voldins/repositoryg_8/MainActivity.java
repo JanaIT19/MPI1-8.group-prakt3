@@ -59,7 +59,13 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         SharedPreferences.Editor editor = preferences.edit();
         editor.putString("Text", text.getText().toString());
         editor.commit();
-        Toast.makeText(MainActivity.this,"Preference saglabāta", Toast.LENGTH_SHORT).show();
+        String textStr = text.getText().toString();
+        if (textStr.equals("")){
+            Toast.makeText(MainActivity.this,"Ievadiet tekstu", Toast.LENGTH_SHORT).show();
+        }else{
+          Toast.makeText(MainActivity.this,"Preference saglabāta", Toast.LENGTH_SHORT).show();
+        }
+
     }
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
