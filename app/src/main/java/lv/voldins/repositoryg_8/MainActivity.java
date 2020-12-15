@@ -32,11 +32,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                text.findViewById(R.id.writedText);
-                SharedPreferences.Editor editor = preferences.edit();
-                editor.putString("Text", text.getText().toString());
-                editor.commit();
-                Toast.makeText(MainActivity.this,"Preference saglabāta", Toast.LENGTH_SHORT).show();
+                savePreference();
             }
         });
 
@@ -58,7 +54,13 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         Intent intent = new Intent(MainActivity.this, MainActivity2.class);
         startActivity(intent);
     }
-
+    public void savePreference(){
+        text = findViewById(R.id.writedText);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString("Text", text.getText().toString());
+        editor.commit();
+        Toast.makeText(MainActivity.this,"Preference saglabāta", Toast.LENGTH_SHORT).show();
+    }
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         String text = parent.getItemAtPosition(position).toString();

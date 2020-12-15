@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity2 extends AppCompatActivity {
     private Button activity1;
@@ -25,13 +26,17 @@ public class MainActivity2 extends AppCompatActivity {
             }
         });
         readPreferences = (Button) findViewById(R.id.preferences);
+        preferences = getSharedPreferences("MySharedPref",MODE_PRIVATE);
         readPreferences.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                preferences = getSharedPreferences("MySharedPref",MODE_PRIVATE);
-                String textStr = preferences.getString("name", "");
-                text = (TextView) findViewById(R.id.textView);
-                text.setText(textStr);
+                String textStr = preferences.getString("Text", null);
+                if  (textStr == null || textStr == ""){
+                    Toast.makeText(MainActivity2.this,"Nekas nav saglabāts", Toast.LENGTH_SHORT).show();
+                }else {
+                    text = (TextView) findViewById(R.id.textView);
+                    text.setText(textStr);
+                }
             }
         });
     }
