@@ -29,9 +29,9 @@ public class MainActivity2 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 preferences = getSharedPreferences("MySharedPref",MODE_PRIVATE);
-                String s1 = preferences.getString("name", "");
+                String textStr = preferences.getString("name", "");
                 text = (TextView) findViewById(R.id.textView);
-                text.setText(s1);
+                text.setText(textStr);
             }
         });
     }
