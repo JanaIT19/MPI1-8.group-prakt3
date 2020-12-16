@@ -36,6 +36,7 @@ public class MainActivity2 extends AppCompatActivity {
                 }else {
                     text = (TextView) findViewById(R.id.textView);
                     text.setText(textStr);
+                    Toast.makeText(MainActivity2.this,"Preference nolasīta", Toast.LENGTH_SHORT).show();
                 }
             }
         });
